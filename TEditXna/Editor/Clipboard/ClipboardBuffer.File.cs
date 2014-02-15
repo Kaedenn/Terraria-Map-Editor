@@ -642,8 +642,9 @@ namespace TEditXna.Editor.Clipboard
 
                 }
             }
-
+#pragma warning disable 162
             return null;
+#pragma warning restore
         }
 
         public static ClipboardBuffer LoadOld(string filename)

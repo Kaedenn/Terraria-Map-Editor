@@ -95,8 +95,12 @@
     <Compile Include="Editor\MouseTile.cs" />
     <Compile Include="Editor\PaintMode.cs" />
     <Compile Include="Editor\Plugins\BasePlugin.cs" />
+    <Compile Include="Editor\Plugins\AnalyzeTilesPluginView.xaml.cs">
+      <DependentUpon>AnalyzeTilesPluginView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Editor\Plugins\IPlugin.cs" />
     <Compile Include="Editor\Plugins\PerlinNoise.cs" />
+    <Compile Include="Editor\Plugins\AnalyzeTilesPlugin.cs" />
     <Compile Include="Editor\Plugins\ReplaceAllPlugin.cs" />
     <Compile Include="Editor\Plugins\ReplaceAllPluginView.xaml.cs">
       <DependentUpon>ReplaceAllPluginView.xaml</DependentUpon>
@@ -206,6 +210,10 @@
     <Compile Include="View\WorldRenderXna.xaml.cs">
       <DependentUpon>WorldRenderXna.xaml</DependentUpon>
     </Compile>
+    <Page Include="Editor\Plugins\AnalyzeTilesPluginView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Editor\Plugins\ReplaceAllPluginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -410,11 +418,11 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_AssemblyInfoFilename="Properties\AssemblyInfo.cs" BuildVersion_UseGlobalSettings="True" />
+      <UserProperties BuildVersion_UseGlobalSettings="True" BuildVersion_AssemblyInfoFilename="Properties\AssemblyInfo.cs" />
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>"C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\vcvars32.bat"
+    <PostBuildEvent>"C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\vcvars32.bat"
 editbin /largeaddressaware $(TargetPath)</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>

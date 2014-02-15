@@ -21,7 +21,17 @@ namespace TEditXna.Editor.Plugins
                 for (int x = 0; x < _wvm.CurrentWorld.TilesWide; x++)
                 {
                     var curTile = _wvm.CurrentWorld.Tiles[x, y];
-                    if (World.TileProperties[curTile.Type].Name.Contains("Sand"))
+                    bool shouldShift = false;
+                    string tileName = World.TileProperties[curTile.Type].Name.ToLower();
+                    // Kae 25 Jan 14: Fix so this doesn't match sandstone but
+                    // still matches ebonsand, crimsand, etc. Add silt and
+                    // slush too.
+                    // XXX: Kae 25 Jan 14: Should add a tile property for
+                    // "affected by gravity".
+                    if (tileName.EndsWith("sand block")) shouldShift = true;
+                    if (tileName.StartsWith("silt block")) shouldShift = true;
+                    if (tileName.StartsWith("slush block")) shouldShift = true;
+                    if (shouldShift)
                     {
                         // check if tile below current tile is empty and move sand to there if it is.
                         int shiftAmmount = 1;

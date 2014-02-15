@@ -75,7 +75,8 @@ namespace TEditXna.Editor.Plugins
                     if (replaceTiles)
                     {
                         if ((curTile.IsActive && curTile.Type == tileMask && _wvm.TilePicker.TileMaskMode == MaskMode.Match)
-                            || (!curTile.IsActive && _wvm.TilePicker.TileMaskMode == MaskMode.Empty))
+                            || (!curTile.IsActive && _wvm.TilePicker.TileMaskMode == MaskMode.Empty)
+                            || (curTile.IsActive && _wvm.TilePicker.TileMaskMode == MaskMode.NonEmpty))
                         {
                             doReplaceTile = true;
                         }
@@ -84,7 +85,8 @@ namespace TEditXna.Editor.Plugins
                     if (replaceWalls)
                     {
                         if ((curTile.Wall == wallMask && _wvm.TilePicker.WallMaskMode == MaskMode.Match)
-                            || (curTile.Wall == 0 && _wvm.TilePicker.WallMaskMode == MaskMode.Empty))
+                            || (curTile.Wall == 0 && _wvm.TilePicker.WallMaskMode == MaskMode.Empty)
+                            || (curTile.Wall != 0 && _wvm.TilePicker.WallMaskMode == MaskMode.NonEmpty))
                         {
                             doReplaceWall = true;
                         }
